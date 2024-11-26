@@ -5,8 +5,8 @@ public class Satellite {
 
     public static String EscanearArea(String region) {
         Random random = new Random();
-        double areaDesmatada = 100 + (400 * random.nextDouble());  // Área desmatada entre 100 e 400 km²
-        double areaVerde = 2000 + (8000 * random.nextDouble());  // Área verde entre 2000 e 8000 km²
+        double areaDesmatada = 100 + (400 * random.nextDouble());
+        double areaVerde = 2000 + (8000 * random.nextDouble());
 
 
         String formattedDesmatada = String.format("%.1f", areaDesmatada);
