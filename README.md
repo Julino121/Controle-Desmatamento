@@ -1,33 +1,30 @@
-# Monitoramento de Desmatamento com Drone e Satélite
+# Projeto de Controle de Área de Desmatamento - Cliente-Servidor
 
-Este projeto simula o monitoramento de áreas desmatadas e áreas verdes utilizando drones e satélites. O sistema gera valores aleatórios representando as áreas desmatadas e áreas verdes em diferentes regiões e envia esses dados para um servidor. O servidor processa e exibe as informações de desmatamento e áreas verdes.
+Este projeto simula um sistema de monitoramento de desmatamento usando um modelo cliente-servidor em Java. O servidor gera dados de desmatamento e áreas verdes utilizando simulações com as classes `Drone` e `Satellite`, enquanto o cliente se conecta ao servidor e exibe os dados recebidos.
 
 
 ## Descrição das Classes
 
-### 1. **Client.java**
-A classe `Client` é uma simulação de um cliente que se conecta ao servidor. Ela não é usada diretamente na simulação, mas serve para ilustrar a comunicação cliente-servidor.
+### `Server.java`
 
-### 2. **Server.java**
-O servidor recebe os dados de desmatamento e áreas verdes de drones e satélites, e exibe essas informações.
+- Espera a conexão do cliente.
+- Gera dados de desmatamento e áreas verdes usando as classes `Drone` e `Satellite`.
+- Envia esses dados para o cliente.
 
-- **Método principal**: Inicia o servidor e aguarda os dados dos dispositivos.
-- **Recebe dados de drone e satélite**: Armazena e exibe as informações de desmatamento e áreas verdes por região.
+### `Client.java`
 
-### 3. **Drone.java**
-A classe `Drone` simula o monitoramento de uma região por drone. Ela gera áreas desmatadas e áreas verdes de forma aleatória.
+- Se conecta ao servidor.
+- Recebe e exibe os dados de desmatamento e áreas verdes enviados pelo servidor.
 
-- **Método `generateRandomAreas()`**: Gera valores aleatórios para áreas desmatadas e áreas verdes.
-- **Método `detectDesmatamento()`**: Exibe as áreas desmatadas e verdes para a região monitorada.
+### `Drone.java`
 
-### 4. **Satellite.java**
-A classe `Satellite` simula o monitoramento de uma região por satélite. Ela também gera dados aleatórios sobre desmatamento e áreas verdes.
+- Simula um drone que gera dados de desmatamento e áreas verdes.
+- Gera valores aleatórios para áreas desmatadas e áreas verdes.
 
-- **Método `generateRandomAreas()`**: Gera valores aleatórios para áreas desmatadas e áreas verdes.
-- **Método `captureImage()`**: Exibe os dados de desmatamento e áreas verdes da região monitorada.
+### `Satellite.java`
 
-### 5. **MonitoramentoSimulador.java**
-A classe `MonitoramentoSimulador` cria instâncias de drone e satélite, gera dados aleatórios e envia esses dados para o servidor.
+- Simula um satélite que gera dados de desmatamento e áreas verdes.
+- Gera valores aleatórios para áreas desmatadas e áreas verdes.
 
-- **Método `main()`**: Inicia o processo de monitoramento e envia os dados ao servidor.
+
 
