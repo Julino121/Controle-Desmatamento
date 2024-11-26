@@ -7,7 +7,7 @@ public class Server {
         int port = 12345;
 
         try {
-            // Criar um servidor que escuta na porta 12345
+            // inicia o Servidor
             ServerSocket serverSocket = new ServerSocket(port);
             System.out.println("Servidor iniciado na porta: " + port);
 
