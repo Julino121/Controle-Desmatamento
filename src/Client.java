@@ -2,41 +2,27 @@ import java.io.*;
 import java.net.*;
 
 public class Client {
+
     public static void main(String[] args) {
+        String serverAddress = "localhost";  // Endereço do servidor
+        int serverPort = 12345;  // Porta do servidor
+
         try {
-            // Conecta-se ao servidor na porta 12345
-            Socket socket = new Socket("localhost", 12345);
+            // Conecta no servidor
+            Socket socket = new Socket(serverAddress, serverPort);
+            System.out.println("Conectado ao servidor: " + serverAddress + ":" + serverPort);
+
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
 
-            System.out.println("Conectado ao servidor. Digite seus comandos.");
-
-            String command;
-            while (true) {
-                System.out.print("Comando: ");
-                command = userInput.readLine();
-
-                out.println(command); // Envia o comando para o servidor
-
-                String response;
-                while ((response = in.readLine()) != null) {
-                    System.out.println(response); // Exibe a resposta do servidor
-                    if (response.contains("Conexão encerrada")) {
-                        break;
-                    }
-                }
-
-                if (command.equalsIgnoreCase("QUIT")) {
-                    break;
-                }
+            // Recebe dados do servidor
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                System.out.println(inputLine);
             }
 
-            // Fecha a conexão
-            in.close();
-            out.close();
-            userInput.close();
+            // Encerra a conexao
             socket.close();
+            System.out.println("Conexão com o servidor encerrada.");
         } catch (IOException e) {
             e.printStackTrace();
         }
